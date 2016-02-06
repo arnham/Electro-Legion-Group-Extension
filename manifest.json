@@ -4,8 +4,8 @@
   "manifest_version": 2,
 
   "name": "Electro Legion Group Notifier for Roblox",
-  "description": "Helps users attend raids, defences, and trainings along with providing information on Electro Legion on Roblox.",
-  "version": "1.10.6",
+  "description": "Helps users attend raids, defences, and trainings along with providing information on Electro Legion on Roblox. Now updated to 2.0!",
+  "version": "2.2.0",
   "options_page": "lib/html/settings.html",
 
   "browser_action": {
@@ -15,7 +15,7 @@
   
   "author": "TheBlissful",
   "background": {
-    "scripts": ["/lib/scripts/jquery.js", "/script.js", "/forum siggy.js"]
+    "scripts": ["/lib/scripts/jquery.js", "/script.js"]
   },
   
   "content_scripts": [
@@ -33,7 +33,6 @@
 	"alarms",
 	"notifications",
 	"storage",
-    "http://www.roblox.com/",
 	"gcm" 
 	]
 }

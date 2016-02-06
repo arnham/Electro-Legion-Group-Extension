@@ -18,44 +18,67 @@
 				text-align: center;
 				font: Sans-Serif;
 			}
-			
+            .button {
+                display: inline-block;
+                padding: 3px 12px;
+                font-size: 18px;
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                outline: none;
+                color: #fff;
+                background-color: #af9928;
+                border: none;
+                border-radius: 2px;
+                box-shadow: 0 2px #999;
+            }
+
+            .button:hover {background-color: #8e842c
+            }
+
+            .button:active {
+                background-color: #8e8436;
+                box-shadow: 0 2px #666;
+                transform: translateY(4px);
+            }
 		</style>
 	</head>
 	<body style="width:300px; height:200px; background-color:Gold"; background="\lib\img\background.png">
 		<center>
 			<a href="http://www.roblox.com/My/Groups.aspx?gid=527677" target="_blank"><h1>Electro Legion</h1></a>
+            <font color="white"><h1>Settings</h1></font>
 			<h3>
-			<font color="white">Only On/Off works currently.</font>
-			<br>
-			<font color="white">Checked equals Off</font>
-			<br>
 			<label>
 				<input type="checkbox" id="onoroff">
-				<font color="white">On/Off(Recommended)</font>
+				<font color="white">On/Off</font>
 			</label>
-			<br>
-			<br>
-			<font color="white">Checked equals On</font>
+            <br>
+            <label>
+              <input type="checkbox" id="onStartup">
+               <font color="white">Notify on Startup</font>
+            </label>
 			<br>
 			<label>
 				<input type="checkbox" id="newevent">
-				<font color="white">Current Event Warning(Recommended)</font>
+				<font color="white">Time Event Warning</font>
 			</label>
 			<br>
-            <div><font color="white">Forum Signature(Leave blank for none):</font>
-                <input type="text" id="signature"></input>
-            </div>
-			<br>
-			<br>
-			<div><font color="white">UserName(For Promotion):</font>
+            <label>
+                <input type="checkbox" id="sound">
+                <font color="white">Sound</font>
+            </label>
+            <br>
+            <br>
+			<div><font color="white">UserName(For Promotion; broken):</font>
                 <input type="text" id="input1"></input>
             </div>
 			<font color="white"<div id="status"></div></font>
 			<br>
-			<button id="save">Save</button>
+			<button id="save" type="button" class="button">Save</button>
+            <br>
+            <br>
 			<br>
-			<br>
-			<a href="/popup.html"><font color="white">Back</font></a>
+            <a href="/popup.html"><font color="white">Back</font></a>
 			</h3>
 			<script src="/settings.js"></script>
 		</center>
