@@ -2,8 +2,8 @@
 window.check = null;
 window.shout = null;
 window.debouncecheck = "herp";
-window.url = 'http://www.roblox.com/My/Groups.aspx?gid=10880';
-var x = 10880;
+window.url = 'http://www.roblox.com/My/Groups.aspx?gid=527677';
+var x = 527677;
 
 /*------------------------------------------------------------------------*/
 
@@ -89,20 +89,24 @@ function getdata(){
 						var shout = data.match(/(?:class="StatusTextField linkify">)(.*)(?:<\/span>)/i);
 						var name = data.match(/(?:\d\/profile" style="font-style: italic;">)(.*)(?:<)/i);
 						var id = data.match(/(?:<a id="ctl00_cphRoblox_GroupStatusPane_StatusPoster" href="http:\/\/www\.roblox\.com\/users\/)(\d+)(?:\/profile")/i);
+						if(id == null || name == null){
+							var id = [null, "Unknown"];
+							var name = [null, "Unknown"];
+						}
 						window.id = id[1];
 						window.name = name[1];
 						console.log(shout);
 						console.log(window.id);
 						console.log(window.name);
-						$.ajax({   //put in a try so when it fails it doesnt explode all over???????
-							url: 'http://www.roblox.com/Game/LuaWebService/HandleSocialRequest.ashx?method=GetGroupRole&groupid=' + config.spam + '&playerid=' + window.id,
-							success: function (rank) {
-								window.rank = rank;
-								if (shout == null) {
-									console.log("No shout found.");
-									//no shout or something wrong such as not logged in
-									setTimeout(getdata, 5000);
-								}else{
+						if (shout == null) {
+							console.log("No shout found.");
+							//no shout or something wrong such as not logged in
+							setTimeout(getdata, 5000);
+						}else{
+							$.ajax({   //put in a try so when it fails it doesnt explode all over???????
+								url: 'http://www.roblox.com/Game/LuaWebService/HandleSocialRequest.ashx?method=GetGroupRole&groupid=' + config.spam + '&playerid=' + window.id,
+								success: function (rank) {
+									window.rank = rank;
 									if (window.shout == null) { //first time run
 										console.log("window shout was null");
 										window.check = shout[1]
@@ -140,13 +144,13 @@ function getdata(){
 									}else{
 										console.log("rip everyone")
 									}
+								},
+								error: function(req, stat, err){
+									console.log('Error... Request: ' + req + ' Status: ' + stat + ' Error: ' + err);
+									setTimeout(getdata, 5000);
 								}
-							},
-						error: function(req, stat, err){
-							console.log('Error... Request: ' + req + ' Status: ' + stat + ' Error: ' + err);
-							setTimeout(getdata, 5000);
+							});
 						}
-					});
 					},
 					error: function(req, stat, err){
 						console.log('Error... Request: ' + req + ' Status: ' + stat + ' Error: ' + err);

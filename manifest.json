@@ -5,7 +5,7 @@
 
   "name": "Electro Legion Group Notifier for Roblox",
   "description": "Helps users attend raids, defences, and trainings along with providing information on Electro Legion on Roblox. Now updated to 2.0!",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "options_page": "lib/html/settings.html",
 
   "browser_action": {
